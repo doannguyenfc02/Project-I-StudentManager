@@ -16,7 +16,8 @@ namespace Project_I
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_Project_I());
+            Application.Run(new form_DangNhap());
+            //Application.Run(new form_Project_I());
         }
     }
 }

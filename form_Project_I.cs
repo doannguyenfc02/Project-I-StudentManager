@@ -11,6 +11,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
+using System.Xml;
 
 namespace Project_I
 {
@@ -25,8 +26,9 @@ namespace Project_I
         VideoCaptureDevice videoCapture;
         FilterInfoCollection filterInfo;
         SqlConnection conn = null;
-        string strConn = "Server=DESKTOP-6LU74U9\\DOANNGUYEN;database=HUST;user id=sa;password=20200445";
-
+        SqlCommand command = new SqlCommand();
+        string strConn;
+        bool isCheck_Database = false;
         int checkStart =0;
         void StartCamera()
         {
@@ -81,15 +83,19 @@ namespace Project_I
         }
         private void Check()
         {
-            if (checkStart==1)
+            if (isCheck_Database == false)
             {
-                    
+                MessageBox.Show("Vui lòng kết nối cơ sở dữ liêu");
+            }
+            else
+            {
+                if (checkStart == 1)
+                {
                     if (conn == null)
                         conn = new SqlConnection(strConn);
                     if (conn.State == ConnectionState.Closed)
                         conn.Open();
 
-                    SqlCommand command = new SqlCommand();
                     command.CommandType = CommandType.Text;
                     command.CommandText = "select * from Student where IdCard=" + txtID.Text + "or MSSV=" + txtID.Text;
                     command.Connection = conn;
@@ -108,13 +114,24 @@ namespace Project_I
                         MessageBox.Show("Thông tin của bạn chưa có trong CSDL"); ;
                     }
                     reader.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng bật Camera!");
+                }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng start!");
-            }
+            
         }
+        void phanquyenTK()
+        {
+            switch (Const_P.user.Type)
+            {
+                case User.dataTypeUser.nhanvien:
+                    quảnLýTàiKhoảnToolStripMenuItem.Enabled = false;
+                    break;
+            }
 
+        }
 
         private void Camera_On(object sender, NewFrameEventArgs eventArgs)
         {
@@ -124,13 +141,10 @@ namespace Project_I
 
         private void form_Project_I_Load(object sender, EventArgs e)
         {
-
+            group_Database.Hide();
+            phanquyenTK();
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            StartCamera();
-        }
 
         private void form_Project_I_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -147,19 +161,13 @@ namespace Project_I
             Check();
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            Reset();
-            pic1.Image = null;
-            pic2.Image = null;
-        }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             if (videoCapture != null && videoCapture.IsRunning)
             {
@@ -171,6 +179,59 @@ namespace Project_I
         private void btnSave_Click(object sender, EventArgs e)
         {
             TakeImage();
+        }
+
+        private void thiếtLậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartCamera();
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            strConn = "Server=" + txtServername.Text + ";database=" + txtDB.Text + ";user id=" + txtUser.Text + ";password=" + txtPW.Text;
+            try
+            {
+                conn = new SqlConnection(strConn);
+                conn.Open();
+                MessageBox.Show("Bạn kết nối cơ sở dữ liệu thành công");
+                isCheck_Database = true;
+                group_Database.Hide();
+                group_Home.Show();
+            }
+            catch (Exception ex)
+            {
+                isCheck_Database=false;
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reset();
+            pic1.Image = null;
+            pic2.Image = null;
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            group_Database.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            group_Database.Hide();
+            group_Home.Show();
         }
     }
 }

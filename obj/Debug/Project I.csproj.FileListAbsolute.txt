@@ -16,3 +16,20 @@ D:\DataCode\C#\Source\Project I\bin\Debug\AForge.xml
 D:\DataCode\C#\Source\Project I\obj\Debug\Project I.csproj.CopyComplete
 D:\DataCode\C#\Source\Project I\obj\Debug\Project I.exe
 D:\DataCode\C#\Source\Project I\obj\Debug\Project I.pdb
+C:\Users\doann\Desktop\Project I\bin\Debug\Project I.exe.config
+C:\Users\doann\Desktop\Project I\bin\Debug\Project I.exe
+C:\Users\doann\Desktop\Project I\bin\Debug\Project I.pdb
+C:\Users\doann\Desktop\Project I\bin\Debug\AForge.dll
+C:\Users\doann\Desktop\Project I\bin\Debug\AForge.Video.xml
+C:\Users\doann\Desktop\Project I\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\doann\Desktop\Project I\bin\Debug\AForge.xml
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.csproj.AssemblyReference.cache
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.csproj.SuggestedBindingRedirects.cache
+C:\Users\doann\Desktop\Project I\obj\Debug\Project_I.form_Project_I.resources
+C:\Users\doann\Desktop\Project I\obj\Debug\Project_I.Properties.Resources.resources
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.csproj.GenerateResource.cache
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.csproj.CoreCompileInputs.cache
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.csproj.CopyComplete
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.exe
+C:\Users\doann\Desktop\Project I\obj\Debug\Project I.pdb
+C:\Users\doann\Desktop\Project I\obj\Debug\Project_I.form_DangNhap.resources
