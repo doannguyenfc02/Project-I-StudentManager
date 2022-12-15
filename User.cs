@@ -11,24 +11,18 @@ namespace Project_I
         private string fullname;
         private string username;
         private string password;
-        private dataTypeUser type;
+        private string type;
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public dataTypeUser Type { get => type; set => type = value; }
         public string Fullname { get => fullname; set => fullname = value; }
+        public string Type { get => type; set => type = value; }
 
-        public enum dataTypeUser
+        public User(string full_name, string user_name, string pass_word, string type_user)
         {
-            giamdoc,
-            quanly,
-            nhanvien
-        }
-        public User(string full_name, string user_name, string pass_word, dataTypeUser type_user)
-        {
-            this.fullname = full_name;
-            this.username = user_name;
-            this.password = pass_word;
-            this.type = type_user;
+            this.Fullname = full_name;
+            this.Username = user_name;
+            this.Password = pass_word;
+            this.Type = type_user;
         }
 
     }

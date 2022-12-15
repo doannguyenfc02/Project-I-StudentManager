@@ -71,6 +71,22 @@
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
+            this.group_QLTK = new System.Windows.Forms.GroupBox();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Edit = new System.Windows.Forms.Button();
+            this.btn_Add = new System.Windows.Forms.Button();
+            this.dataGridView_Users = new System.Windows.Forms.DataGridView();
+            this.txb_crPW = new System.Windows.Forms.TextBox();
+            this.txb_crUser = new System.Windows.Forms.TextBox();
+            this.txb_crType = new System.Windows.Forms.TextBox();
+            this.txb_crFullname = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblCreate_fullname = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
@@ -78,6 +94,8 @@
             this.group_Home.SuspendLayout();
             this.group_Database.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.group_QLTK.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Users)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -376,7 +394,7 @@
             this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(486, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(962, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -490,11 +508,176 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // group_QLTK
+            // 
+            this.group_QLTK.Controls.Add(this.btn_Save);
+            this.group_QLTK.Controls.Add(this.btn_Delete);
+            this.group_QLTK.Controls.Add(this.btn_Cancel);
+            this.group_QLTK.Controls.Add(this.btn_Edit);
+            this.group_QLTK.Controls.Add(this.btn_Add);
+            this.group_QLTK.Controls.Add(this.dataGridView_Users);
+            this.group_QLTK.Controls.Add(this.txb_crPW);
+            this.group_QLTK.Controls.Add(this.txb_crUser);
+            this.group_QLTK.Controls.Add(this.txb_crType);
+            this.group_QLTK.Controls.Add(this.txb_crFullname);
+            this.group_QLTK.Controls.Add(this.label5);
+            this.group_QLTK.Controls.Add(this.label9);
+            this.group_QLTK.Controls.Add(this.label8);
+            this.group_QLTK.Controls.Add(this.label6);
+            this.group_QLTK.Controls.Add(this.lblCreate_fullname);
+            this.group_QLTK.Location = new System.Drawing.Point(483, 37);
+            this.group_QLTK.Name = "group_QLTK";
+            this.group_QLTK.Size = new System.Drawing.Size(452, 377);
+            this.group_QLTK.TabIndex = 8;
+            this.group_QLTK.TabStop = false;
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.Location = new System.Drawing.Point(369, 347);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_Save.TabIndex = 16;
+            this.btn_Save.Text = "Lưu";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.Location = new System.Drawing.Point(187, 347);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_Delete.TabIndex = 15;
+            this.btn_Delete.Text = "Xóa";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel.Location = new System.Drawing.Point(278, 347);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancel.TabIndex = 14;
+            this.btn_Cancel.Text = "Hủy";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Edit.Location = new System.Drawing.Point(106, 348);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_Edit.TabIndex = 12;
+            this.btn_Edit.Text = "Sửa";
+            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.Location = new System.Drawing.Point(14, 348);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(75, 23);
+            this.btn_Add.TabIndex = 11;
+            this.btn_Add.Text = "Thêm";
+            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
+            // 
+            // dataGridView_Users
+            // 
+            this.dataGridView_Users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Users.Location = new System.Drawing.Point(14, 117);
+            this.dataGridView_Users.Name = "dataGridView_Users";
+            this.dataGridView_Users.Size = new System.Drawing.Size(430, 208);
+            this.dataGridView_Users.TabIndex = 10;
+            this.dataGridView_Users.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Users_CellClick);
+            // 
+            // txb_crPW
+            // 
+            this.txb_crPW.Location = new System.Drawing.Point(329, 61);
+            this.txb_crPW.Name = "txb_crPW";
+            this.txb_crPW.Size = new System.Drawing.Size(123, 20);
+            this.txb_crPW.TabIndex = 9;
+            // 
+            // txb_crUser
+            // 
+            this.txb_crUser.Location = new System.Drawing.Point(95, 65);
+            this.txb_crUser.Name = "txb_crUser";
+            this.txb_crUser.Size = new System.Drawing.Size(137, 20);
+            this.txb_crUser.TabIndex = 8;
+            // 
+            // txb_crType
+            // 
+            this.txb_crType.Location = new System.Drawing.Point(329, 23);
+            this.txb_crType.Name = "txb_crType";
+            this.txb_crType.Size = new System.Drawing.Size(123, 20);
+            this.txb_crType.TabIndex = 7;
+            // 
+            // txb_crFullname
+            // 
+            this.txb_crFullname.Location = new System.Drawing.Point(95, 19);
+            this.txb_crFullname.Name = "txb_crFullname";
+            this.txb_crFullname.Size = new System.Drawing.Size(137, 20);
+            this.txb_crFullname.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(-3, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Tên đăng nhập:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(238, 68);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Mật khẩu:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(238, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Loại tài khoản:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(-172, 216);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "label6";
+            // 
+            // lblCreate_fullname
+            // 
+            this.lblCreate_fullname.AutoSize = true;
+            this.lblCreate_fullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreate_fullname.Location = new System.Drawing.Point(4, 25);
+            this.lblCreate_fullname.Name = "lblCreate_fullname";
+            this.lblCreate_fullname.Size = new System.Drawing.Size(67, 13);
+            this.lblCreate_fullname.TabIndex = 0;
+            this.lblCreate_fullname.Text = "Họ và tên:";
+            // 
             // form_Project_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 466);
+            this.ClientSize = new System.Drawing.Size(962, 466);
+            this.Controls.Add(this.group_QLTK);
             this.Controls.Add(this.group_Home);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.menuStrip1);
@@ -514,6 +697,9 @@
             this.group_Database.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.group_QLTK.ResumeLayout(false);
+            this.group_QLTK.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Users)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,6 +748,22 @@
         private System.Windows.Forms.Label lblServername;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox group_QLTK;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCreate_fullname;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_Edit;
+        private System.Windows.Forms.Button btn_Add;
+        private System.Windows.Forms.DataGridView dataGridView_Users;
+        private System.Windows.Forms.TextBox txb_crPW;
+        private System.Windows.Forms.TextBox txb_crUser;
+        private System.Windows.Forms.TextBox txb_crType;
+        private System.Windows.Forms.TextBox txb_crFullname;
+        private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button btn_Delete;
     }
 }
 

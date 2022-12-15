@@ -122,11 +122,15 @@ namespace Project_I
             }
             
         }
+
+
+
+
         void phanquyenTK()
         {
             switch (Const_P.user.Type)
             {
-                case User.dataTypeUser.nhanvien:
+                case "nhanvien":
                     quảnLýTàiKhoảnToolStripMenuItem.Enabled = false;
                     break;
             }
@@ -143,6 +147,7 @@ namespace Project_I
         {
             group_Database.Hide();
             phanquyenTK();
+            fQLTK_load();
         }
 
 
@@ -233,5 +238,145 @@ namespace Project_I
             group_Database.Hide();
             group_Home.Show();
         }
+        #region methodQLTK
+        string Status = "";
+        int index = -1;
+        void fQLTK_load()
+        {
+            EnableControls(false, true);
+            createColumnforDtgv();
+            LoadlistUsers();
+            btn_Cancel.Enabled = btn_Save.Enabled = false;
+        }
+        void createColumnforDtgv()
+        {
+            var colFullname = new DataGridViewTextBoxColumn();
+            var colUser = new DataGridViewTextBoxColumn();
+            var colPW = new DataGridViewTextBoxColumn();
+            var colType = new DataGridViewTextBoxColumn();
+            colFullname.Width = 180;
+            colUser.Width = 120;
+            colPW.Width = 120;
+            colType.Width = 150;
+
+            colFullname.DataPropertyName = "Fullname";
+            colUser.DataPropertyName = "Username";
+            colPW.DataPropertyName = "Password";
+            colType.DataPropertyName = "Type";
+       
+            colFullname.HeaderText = "Họ và tên";
+            colUser.HeaderText = "Tên đăng nhập";
+            colPW.HeaderText = "Mật khẩu";
+            colType.HeaderText = "loại tài khoản";
+            dataGridView_Users.Columns.AddRange(new DataGridViewColumn[] { colFullname, colUser, colPW, colType });
+        }
+        void LoadlistUsers()
+        {
+            dataGridView_Users.DataSource = null;
+            createColumnforDtgv();
+            dataGridView_Users.DataSource = List_User.Instance.List_users;
+            dataGridView_Users.Refresh();
+
+        }
+        void EnableControls(bool isEnableTextbox, bool isNableDatagridview)
+        {
+            txb_crFullname.Enabled =txb_crUser.Enabled = txb_crPW.Enabled = txb_crType.Enabled = isEnableTextbox;
+            dataGridView_Users.Enabled = isNableDatagridview;
+        }
+        void clearTextbox()
+        {
+            foreach (var item in this.Controls)
+            {
+                TextBox item1 = item as TextBox;
+                if (item1 != null)
+                {
+                    item1.Clear();
+                }
+            }
+        }
+        #endregion
+
+        #region evenQLTK
+
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            EnableControls(true, false);
+            btn_Delete.Enabled = btn_Edit.Enabled = false;
+            btn_Cancel.Enabled =btn_Save.Enabled = true;
+            Status = "Add";
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            string fullname = txb_crFullname.Text;
+            string user = txb_crUser.Text;
+            string pw = txb_crPW.Text;
+            string type = txb_crType.Text;
+
+            if (Status == "Add")
+            {
+                List_User.Instance.List_users.Add(new User(fullname, user, pw, type));
+            }
+            if (Status == "Edit")
+            {
+                List_User.Instance.List_users[index].Fullname = txb_crFullname.Text;
+                List_User.Instance.List_users[index].Username = txb_crUser.Text;
+                List_User.Instance.List_users[index].Password = txb_crPW.Text;
+                List_User.Instance.List_users[index].Type = txb_crType.Text;
+
+            }
+            EnableControls(true, false);
+            LoadlistUsers();
+            clearTextbox();
+            btn_Delete.Enabled = btn_Add.Enabled = btn_Edit.Enabled = true;
+            btn_Cancel.Enabled = btn_Save.Enabled = false;
+        }
+       
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            if (index < 0)
+            {
+                MessageBox.Show("Hay chon mot ban ghi", "canh bao");
+                return;
+            }
+            EnableControls(true, false);
+            btn_Delete.Enabled = btn_Add.Enabled = btn_Edit.Enabled = false;
+            btn_Cancel.Enabled = btn_Save.Enabled = true;
+
+            txb_crFullname.Text = List_User.Instance.List_users[index].Fullname;
+            txb_crUser.Text = List_User.Instance.List_users[index].Username;
+            txb_crUser.Text = List_User.Instance.List_users[index].Password;
+            txb_crType.Text = List_User.Instance.List_users[index].Type;
+
+
+            Status = "Edit";
+        }
+        
+        private void dataGridView_Users_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            clearTextbox();
+            EnableControls(false, true);
+            btn_Delete.Enabled = btn_Cancel.Enabled = btn_Edit.Enabled = true;
+            btn_Cancel.Enabled = btn_Save.Enabled = false;
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (index < 0)
+            {
+                MessageBox.Show("Hay chon mot ban ghi", "canh bao");
+                return;
+            }
+            List_User.Instance.List_users.RemoveAt(index);
+            LoadlistUsers();
+        }
+        #endregion
+
     }
 }
