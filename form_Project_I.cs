@@ -146,6 +146,7 @@ namespace Project_I
         private void form_Project_I_Load(object sender, EventArgs e)
         {
             group_Database.Hide();
+            group_QLTK.Hide();
             phanquyenTK();
             fQLTK_load();
         }
@@ -185,7 +186,7 @@ namespace Project_I
         {
             TakeImage();
         }
-
+        #region menu
         private void thiếtLậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -231,8 +232,15 @@ namespace Project_I
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             group_Database.Show();
+            group_QLTK.Hide();
         }
-
+        private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            group_QLTK.Show();
+            group_Home.Hide();
+            group_Database.Hide();
+        }
+        #endregion
         private void btnHome_Click(object sender, EventArgs e)
         {
             group_Database.Hide();
@@ -254,10 +262,10 @@ namespace Project_I
             var colUser = new DataGridViewTextBoxColumn();
             var colPW = new DataGridViewTextBoxColumn();
             var colType = new DataGridViewTextBoxColumn();
-            colFullname.Width = 180;
-            colUser.Width = 120;
-            colPW.Width = 120;
-            colType.Width = 150;
+            colFullname.Width = 150;
+            colUser.Width =100;
+            colPW.Width = 100;
+            colType.Width = 75;
 
             colFullname.DataPropertyName = "Fullname";
             colUser.DataPropertyName = "Username";
@@ -377,6 +385,5 @@ namespace Project_I
             LoadlistUsers();
         }
         #endregion
-
     }
 }
