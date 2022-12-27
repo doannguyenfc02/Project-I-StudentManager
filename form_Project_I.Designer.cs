@@ -92,6 +92,7 @@
             this.Output = new System.Windows.Forms.TabPage();
             this.dataGridView_Output = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
@@ -441,7 +442,7 @@
             this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1208, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(690, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -511,14 +512,14 @@
             // quảnLýTàiKhoảnToolStripMenuItem
             // 
             this.quảnLýTàiKhoảnToolStripMenuItem.Name = "quảnLýTàiKhoảnToolStripMenuItem";
-            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýTàiKhoảnToolStripMenuItem.Text = "Quản lý tài khoản";
             this.quảnLýTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàiKhoảnToolStripMenuItem_Click);
             // 
             // exportOutputToolStripMenuItem
             // 
             this.exportOutputToolStripMenuItem.Name = "exportOutputToolStripMenuItem";
-            this.exportOutputToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.exportOutputToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exportOutputToolStripMenuItem.Text = "ExportOutput";
             this.exportOutputToolStripMenuItem.Click += new System.EventHandler(this.exportOutputToolStripMenuItem_Click);
             // 
@@ -774,6 +775,7 @@
             // 
             // Output
             // 
+            this.Output.Controls.Add(this.btn_ExportExcel);
             this.Output.Controls.Add(this.dataGridView_Output);
             this.Output.Location = new System.Drawing.Point(4, 25);
             this.Output.Name = "Output";
@@ -787,7 +789,7 @@
             // 
             this.dataGridView_Output.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_Output.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Output.Location = new System.Drawing.Point(22, 27);
+            this.dataGridView_Output.Location = new System.Drawing.Point(20, 6);
             this.dataGridView_Output.Name = "dataGridView_Output";
             this.dataGridView_Output.RowHeadersWidth = 51;
             this.dataGridView_Output.RowTemplate.Height = 24;
@@ -796,17 +798,27 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(746, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(343, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(264, 38);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.Location = new System.Drawing.Point(440, 357);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(124, 49);
+            this.btn_ExportExcel.TabIndex = 1;
+            this.btn_ExportExcel.Text = "Xuất Excel";
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // form_Project_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 665);
+            this.ClientSize = new System.Drawing.Size(690, 665);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnHome);
@@ -908,6 +920,7 @@
         private System.Windows.Forms.TabPage Output;
         private System.Windows.Forms.DataGridView dataGridView_Output;
         private System.Windows.Forms.ToolStripMenuItem exportOutputToolStripMenuItem;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }
 

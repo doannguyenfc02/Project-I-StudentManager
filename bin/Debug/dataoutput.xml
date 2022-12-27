@@ -3,21 +3,21 @@
   <Table1>
     <Fullname>ADMIN</Fullname>
     <Mssv>20200445</Mssv>
-    <Note>NOTEMDLKJDKSJ</Note>
+    <Note>Ghi chú 2</Note>
   </Table1>
   <Table1>
-    <Fullname>ADMIN</Fullname>
+    <Fullname>Đoàn Sỹ Nguyên</Fullname>
     <Mssv>20200445</Mssv>
-    <Note>Ghi chú 2</Note>
+    <Note>HHHH </Note>
   </Table1>
-  <Table2>
-    <Fullname>ADMIN</Fullname>
+  <Table1>
+    <Fullname>Đoàn Sỹ Nguyên</Fullname>
     <Mssv>20200445</Mssv>
-    <Note>NOTEMDLKJDKSJ</Note>
-  </Table2>
-  <Table2>
-    <Fullname>ADMIN</Fullname>
+    <Note>KKKKK </Note>
+  </Table1>
+  <Table1>
+    <Fullname>Đoàn Sỹ Nguyên</Fullname>
     <Mssv>20200445</Mssv>
-    <Note>Ghi chú 2</Note>
-  </Table2>
+    <Note>GGGG </Note>
+  </Table1>
 </NewDataSet>

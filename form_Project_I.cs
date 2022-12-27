@@ -70,6 +70,7 @@ namespace Project_I
             lblMSSV.Text = null;
             lblClass.Text = null;
             lblK.Text = null;
+            txtNote.Text = null;
         }
 
         /// <summary>
@@ -96,9 +97,9 @@ namespace Project_I
         /// </summary>
         void TakeImage()
         {
-            DateTime today=DateTime.Now;
-            string strTime=today.Year+"-"+today.Month+"-"+today.Day+"_"+today.Hour+"."+today.Minute+"."+today.Second;   
-            string fileName = @"C:\\Users\\Admin\\Desktop\\File folder\\Image\\"+strTime+"_"+txtID.Text + ".jpg";
+            DateTime today = DateTime.Now;
+            string strTime = today.Year + "-" + today.Month + "-" + today.Day + "_" + today.Hour + "." + today.Minute + "." + today.Second;
+            string fileName = @"C:\\Users\\Admin\\Desktop\\P\\image\\" + strTime + "_" + txtID.Text + ".jpg";
             var bitmap = new Bitmap(pic2.Width, pic2.Height);
             pic2.DrawToBitmap(bitmap, pic2.ClientRectangle);
             System.Drawing.Imaging.ImageFormat imageFormat = null;
@@ -230,6 +231,9 @@ namespace Project_I
         {
             TakeImage();
             List_output.Instance.List_outputs.Add(new Output(Hovaten,mssv, txtNote.Text + " "));
+            resetInfo();
+            txtID.Focus();
+           
         }
         #region menu
 
@@ -281,17 +285,24 @@ namespace Project_I
             tabControl1.SelectedIndex = 0;
 
         }
+        
         #region methodQLTK
         DataTable datatableWrite = new DataTable();
         DataTable datatableRead = new DataTable();
 
 
         DataSet datasetWrite = new DataSet();
-        DataSet datasetWrite_output = new DataSet();
         DataSet datasetRead = new DataSet();
 
         string Status = "";
+        /// <summary>
+        /// Biến chỉ số vị trí đang được chọn
+        /// </summary>
         int index = -1;
+        /// <summary>
+        /// Tạo bảng
+        /// </summary>
+        /// <returns></returns>
         DataTable createDataTable()
         {
             DataTable dataTB = new DataTable();
@@ -306,69 +317,24 @@ namespace Project_I
 
             return dataTB;
         }
-        DataTable createDataoutputTable()
-        {
-            DataTable dataTB = new DataTable();
-            DataColumn colFullname = new DataColumn("Fullname");
-            DataColumn colMSSV = new DataColumn("Mssv");
-            DataColumn colNote = new DataColumn("Note");
-            dataTB.Columns.Add(colFullname);
-            dataTB.Columns.Add(colMSSV);
-            dataTB.Columns.Add(colNote);
-            return dataTB;
-        }
+
         /// <summary>
         /// ghi dữ liệu vào file xml
         /// </summary>
         void writeXML()
         {
-            datatableWrite = createDataoutputTable();
-            foreach(var item in List_output.Instance.List_outputs)
+            datatableWrite = createDataTable();
+            foreach(var item in List_User.Instance.List_users)
             {
-                datatableWrite.Rows.Add(item.Fullname, item.Mssv, item.Note);
+                datatableWrite.Rows.Add(item.Fullname, item.Username, item.Password,item.Type);
             }
             datasetWrite.Tables.Add(datatableWrite);
-            datasetWrite.WriteXml("data.outxml"); //lưu dữ liệu vào file data.xml
-        }
-        void writeoutputXML()
-        {
-            datatableWrite = createDataoutputTable();
-            foreach (var item in List_output.Instance.List_outputs)
-            {
-                datatableWrite.Rows.Add(item.Fullname, item.Mssv, item.Note);
-            }
-            datasetWrite.Tables.Add(datatableWrite);
-            datasetWrite.WriteXml("dataoutput.xml"); //lưu dữ liệu vào file data.xml
+            datasetWrite.WriteXml("data.xml"); //lưu dữ liệu vào file data.xml
         }
 
         /// <summary>
-        /// Đọc dữ liệu từ file xml
+        /// Phân quyền chức năng đối với các loại tài khoản
         /// </summary>
-        void readXML_output()
-        {
-            datasetRead.ReadXml("dataoutput.xml"); //đọc file dataoutput.xml
-            datatableRead = datasetRead.Tables[0]; //cho dữ liệu vào datatable
-            foreach (DataRow item in datatableRead.Rows)
-            {
-                Output newOutput = new Output(item);
-                List_output.Instance.List_outputs.Add(newOutput);
-            }
-        }
-        int indexRow = 2;
-        void ExportEcel(string path)
-        {
-            Excel.Application application = new Excel.Application();
-            application.Application.Workbooks.Add(Type.Missing);
-            application.Cells[1, 1] = "Họ và tên";
-            application.Cells[1, 2] = "MSSV";
-            application.Cells[1, 3] = "Ghi chú";
-            application.Columns.AutoFit();
-            application.ActiveWorkbook.SaveAs(path);
-            application.ActiveWorkbook.Saved=true;
-            indexRow++;
-        }
-
-        
         void fQLTK_load()
         {
             EnableControls(false, true);
@@ -377,21 +343,14 @@ namespace Project_I
             LoadlistUsers();
             btn_Cancel.Enabled = btn_Save.Enabled = false;
         }
-        void fOutput_Load()
-        {
-            readXML_output();
-            createColumnforDtgv_output();
-            LoadlistOutput();
 
-        }
         void fQLTK_closing()
         {
             writeXML();
         }
-        void fOutput_closing()
-        {
-            writeoutputXML();
-        }
+        /// <summary>
+        /// Tạo các cột của datagridview_Users
+        /// </summary>
         void createColumnforDtgv()
         {
             var colFullname = new DataGridViewTextBoxColumn();
@@ -414,27 +373,6 @@ namespace Project_I
             colType.HeaderText = "loại tài khoản";
             dataGridView_Users.Columns.AddRange(new DataGridViewColumn[] { colFullname, colUser, colPW, colType });
         }
-
-        void createColumnforDtgv_output()
-        {
-            var colFullname = new DataGridViewTextBoxColumn();
-            var colMSSV = new DataGridViewTextBoxColumn();
-            var colNote = new DataGridViewTextBoxColumn();
-            colFullname.Width = 150;
-            colMSSV.Width = 100;
-            colNote.Width = 100;
-
-            colFullname.DataPropertyName = "Fullname";
-            colMSSV.DataPropertyName = "Mssv";
-            colNote.DataPropertyName = "Note";
-
-            colFullname.HeaderText = "Họ và tên";
-            colMSSV.HeaderText = "MSSV";
-            colNote.HeaderText = "Ghichu";
-            dataGridView_Output.Columns.AddRange(new DataGridViewColumn[] { colFullname, colMSSV, colNote });
-        }
-
-
         void LoadlistUsers()
         {
             dataGridView_Users.DataSource = null;
@@ -443,13 +381,11 @@ namespace Project_I
             dataGridView_Users.Refresh();
 
         }
-        void LoadlistOutput()
-        {
-            dataGridView_Output.DataSource = null;
-            dataGridView_Output.DataSource =List_output.Instance.List_outputs;
-            dataGridView_Output.Refresh();
-            
-        }
+        /// <summary>
+        /// Trạng thái khóa/mở của các chứng năng
+        /// </summary>
+        /// <param name="isEnableTextbox">trạng thái textbox</param>
+        /// <param name="isNableDatagridview">trạng thái của Datagridview_Users</param>
         void EnableControls(bool isEnableTextbox, bool isNableDatagridview)
         {
             txb_crFullname.Enabled =txb_crUser.Enabled = txb_crPW.Enabled = txb_crType.Enabled = isEnableTextbox;
@@ -633,13 +569,125 @@ namespace Project_I
             }
         }
         #endregion
+        #region method_Output
 
+        DataTable datatableWrite_output = new DataTable();
+        DataTable datatableRead_output = new DataTable();
+        DataSet datasetWrite_output = new DataSet();
+        DataSet datasetRead_oput = new DataSet();
+        DataTable createDataoutputTable()
+        {
+            DataTable dataTB = new DataTable();
+            DataColumn colFullname = new DataColumn("Fullname");
+            DataColumn colMSSV = new DataColumn("Mssv");
+            DataColumn colNote = new DataColumn("Note");
+            dataTB.Columns.Add(colFullname);
+            dataTB.Columns.Add(colMSSV);
+            dataTB.Columns.Add(colNote);
+            return dataTB;
+        }
+        void createColumnforDtgv_output()
+        {
+            var colFullname = new DataGridViewTextBoxColumn();
+            var colMSSV = new DataGridViewTextBoxColumn();
+            var colNote = new DataGridViewTextBoxColumn();
+            colFullname.Width = 150;
+            colMSSV.Width = 100;
+            colNote.Width = 200;
+
+            colFullname.DataPropertyName = "Fullname";
+            colMSSV.DataPropertyName = "Mssv";
+            colNote.DataPropertyName = "Note";
+
+            colFullname.HeaderText = "Họ và tên";
+            colMSSV.HeaderText = "MSSV";
+            colNote.HeaderText = "ghichu";
+            dataGridView_Output.Columns.AddRange(new DataGridViewColumn[] { colFullname, colMSSV, colNote });
+        }
+        void writeoutputXML()
+        {
+            datatableWrite_output = createDataoutputTable();
+            foreach (var item in List_output.Instance.List_outputs)
+            {
+                datatableWrite_output.Rows.Add(item.Fullname, item.Mssv, item.Note);
+            }
+            datasetWrite_output.Tables.Add(datatableWrite_output);
+            datasetWrite_output.WriteXml("dataoutput.xml"); //lưu dữ liệu vào file data.xml
+        }
+
+        /// <summary>
+        /// Đọc dữ liệu từ file xml
+        /// </summary>
+        void readXML_output()
+        {
+            datasetRead_oput.ReadXml("dataoutput.xml"); //đọc file dataoutput.xml
+            datatableRead_output = datasetRead_oput.Tables[0]; //cho dữ liệu vào datatable
+            foreach (DataRow item in datatableRead_output.Rows)
+            {
+                Output newOutput = new Output(item);
+                List_output.Instance.List_outputs.Add(newOutput);
+            }
+        }
+        void fOutput_Load()
+        {
+            readXML_output();
+            createColumnforDtgv_output();
+            LoadlistOutput();
+
+        }
+        void LoadlistOutput()
+        {
+            dataGridView_Output.DataSource = null;
+            dataGridView_Output.DataSource = List_output.Instance.List_outputs;
+            dataGridView_Output.Refresh();
+
+        }
+        void fOutput_closing()
+        {
+            writeoutputXML();
+        }
+
+        #endregion
+        #region xuatExcel
+
+        /// <summary>
+        /// Xuất file exel
+        /// </summary>
+        /// <param name="path">Đường dẫn</param>
+        void ExportEcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            //ghi tiêu tiêu đề
+            for(int i = 0; i < dataGridView_Output.Rows.Count; i++)
+            {
+                application.Cells[1, i + 1] = dataGridView_Output.Columns[i].HeaderText; 
+                
+            }
+            //Ghi nội dung
+            for(int i=0;i< dataGridView_Output.Rows.Count; i++)
+            {
+                for(int j=0;j<dataGridView_Output.Columns.Count; j++)
+                {
+                    application.Cells[i+2, j + 1] = dataGridView_Output.Rows[i].Cells[j].Value;
+                }
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveAs(path);
+            application.ActiveWorkbook.Saved = true;
+      
+        }
         private void exportOutputToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog= new SaveFileDialog();
+            tabControl1.SelectedIndex = 3;
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "Export Excel";
             saveFileDialog.Filter = "Excel(*.xlsx)|*.xlsx";
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
@@ -653,5 +701,6 @@ namespace Project_I
 
             }
         }
+        #endregion
     }
 }
