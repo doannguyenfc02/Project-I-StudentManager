@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table1>
+    <Fullname>ADMIN</Fullname>
+    <Mssv>20200445</Mssv>
+    <Note>NOTEMDLKJDKSJ</Note>
+  </Table1>
+  <Table1>
+    <Fullname>ADMIN</Fullname>
+    <Mssv>20200445</Mssv>
+    <Note>Ghi chú 2</Note>
+  </Table1>
+  <Table2>
+    <Fullname>ADMIN</Fullname>
+    <Mssv>20200445</Mssv>
+    <Note>NOTEMDLKJDKSJ</Note>
+  </Table2>
+  <Table2>
+    <Fullname>ADMIN</Fullname>
+    <Mssv>20200445</Mssv>
+    <Note>Ghi chú 2</Note>
+  </Table2>
+</NewDataSet>

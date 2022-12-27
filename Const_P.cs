@@ -9,5 +9,6 @@ namespace Project_I
     internal class Const_P
     {
         public static User user;
+        public static List_User listUsers;
     }
 }

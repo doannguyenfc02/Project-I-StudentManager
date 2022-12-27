@@ -38,9 +38,10 @@
             // 
             // btn_Thoát
             // 
-            this.btn_Thoát.Location = new System.Drawing.Point(179, 74);
+            this.btn_Thoát.Location = new System.Drawing.Point(239, 91);
+            this.btn_Thoát.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Thoát.Name = "btn_Thoát";
-            this.btn_Thoát.Size = new System.Drawing.Size(75, 23);
+            this.btn_Thoát.Size = new System.Drawing.Size(100, 28);
             this.btn_Thoát.TabIndex = 11;
             this.btn_Thoát.Text = "Thoát";
             this.btn_Thoát.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // btn_DangNhap
             // 
-            this.btn_DangNhap.Location = new System.Drawing.Point(81, 74);
+            this.btn_DangNhap.Location = new System.Drawing.Point(108, 91);
+            this.btn_DangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btn_DangNhap.Name = "btn_DangNhap";
-            this.btn_DangNhap.Size = new System.Drawing.Size(75, 23);
+            this.btn_DangNhap.Size = new System.Drawing.Size(100, 28);
             this.btn_DangNhap.TabIndex = 10;
             this.btn_DangNhap.Text = "Đăng nhập";
             this.btn_DangNhap.UseVisualStyleBackColor = true;
@@ -58,49 +60,57 @@
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(81, 38);
+            this.txtMatKhau.Location = new System.Drawing.Point(108, 47);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(188, 20);
+            this.txtMatKhau.Size = new System.Drawing.Size(249, 22);
             this.txtMatKhau.TabIndex = 9;
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             // 
             // txt_TaiKhoan
             // 
-            this.txt_TaiKhoan.Location = new System.Drawing.Point(81, 12);
+            this.txt_TaiKhoan.Location = new System.Drawing.Point(108, 15);
+            this.txt_TaiKhoan.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TaiKhoan.Name = "txt_TaiKhoan";
-            this.txt_TaiKhoan.Size = new System.Drawing.Size(188, 20);
+            this.txt_TaiKhoan.Size = new System.Drawing.Size(249, 22);
             this.txt_TaiKhoan.TabIndex = 8;
+            this.txt_TaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TaiKhoan_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 41);
+            this.label2.Location = new System.Drawing.Point(23, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Mật khẩu";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 15);
+            this.label1.Location = new System.Drawing.Point(23, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 6;
             this.label1.Text = "Tài khoản:";
             // 
             // form_DangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 115);
+            this.ClientSize = new System.Drawing.Size(376, 142);
             this.Controls.Add(this.btn_Thoát);
             this.Controls.Add(this.btn_DangNhap);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txt_TaiKhoan);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "form_DangNhap";
             this.Text = "Đăng Nhập";
+            this.Load += new System.EventHandler(this.form_DangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

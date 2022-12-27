@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table1>
+    <Fullname>ADMIN</Fullname>
+    <Username>Admin</Username>
+    <Password>123456</Password>
+    <TypeOfUser>quanly</TypeOfUser>
+  </Table1>
+  <Table1>
+    <Fullname>Đoàn Sỹ Nguyên</Fullname>
+    <Username>Doannguyen</Username>
+    <Password>20202020</Password>
+    <TypeOfUser>nhanvien</TypeOfUser>
+  </Table1>
+  <Table1>
+    <Fullname>Nguyễn Văn A</Fullname>
+    <Username>nguyenvanA</Username>
+    <Password>123123</Password>
+    <TypeOfUser>nhanvien</TypeOfUser>
+  </Table1>
+  <Table1>
+    <Fullname>DN</Fullname>
+    <Username>doannguyenfc02</Username>
+    <Password>123456</Password>
+    <TypeOfUser>admin</TypeOfUser>
+  </Table1>
+  <Table1>
+    <Fullname>Doan nGUYEN</Fullname>
+    <Username>doansynguyen</Username>
+    <Password>123456</Password>
+    <TypeOfUser>quanly</TypeOfUser>
+  </Table1>
+</NewDataSet>

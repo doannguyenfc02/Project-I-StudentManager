@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,14 @@ namespace Project_I
             this.Username = user_name;
             this.Password = pass_word;
             this.Type = type_user;
+        }
+        public User(DataRow row) 
+        {
+            this.Fullname = row[0].ToString();
+            this.Username = row[1].ToString();
+            this.Password = row[2].ToString();
+            this.Type = row[3].ToString();
+
         }
 
     }
