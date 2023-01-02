@@ -29,7 +29,13 @@ namespace Project_I
         VideoCaptureDevice videoCapture;
         FilterInfoCollection filterInfo;
         SqlConnection conn = null;
+        /// <summary>
+        /// Biến dùng để chứa các câu lệnh truy vấn trong SQL server
+        /// </summary>
         SqlCommand command = new SqlCommand();
+        /// <summary>
+        /// Biến dùng để lưu các thông tin để kết nối cơ sở dữ liệu: Tên Server, tên tài khoản, mật khẩu, tên database
+        /// </summary>
         string strConn;
         /// <summary>
         /// dùng để kiểm tra kết nối cơ sở dữ liệu
