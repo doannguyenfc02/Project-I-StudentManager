@@ -70,6 +70,7 @@
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
             this.group_QLTK = new System.Windows.Forms.GroupBox();
+            this.cbbox_crType = new System.Windows.Forms.ComboBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@
             this.dataGridView_Users = new System.Windows.Forms.DataGridView();
             this.txb_crPW = new System.Windows.Forms.TextBox();
             this.txb_crUser = new System.Windows.Forms.TextBox();
-            this.txb_crType = new System.Windows.Forms.TextBox();
             this.txb_crFullname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -90,9 +90,10 @@
             this.Database = new System.Windows.Forms.TabPage();
             this.QLTK = new System.Windows.Forms.TabPage();
             this.Output = new System.Windows.Forms.TabPage();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.dataGridView_Output = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_ExportExcel = new System.Windows.Forms.Button();
+            this.btn_Logout = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
@@ -424,12 +425,12 @@
             // btnHome
             // 
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(413, 584);
+            this.btnHome.Location = new System.Drawing.Point(282, 584);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(77, 28);
+            this.btnHome.Size = new System.Drawing.Size(86, 33);
             this.btnHome.TabIndex = 5;
-            this.btnHome.Text = "home";
+            this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
@@ -499,6 +500,7 @@
             this.unconnectToolStripMenuItem.Name = "unconnectToolStripMenuItem";
             this.unconnectToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.unconnectToolStripMenuItem.Text = "Unconnect";
+            this.unconnectToolStripMenuItem.Click += new System.EventHandler(this.unconnectToolStripMenuItem_Click);
             // 
             // chứcNăngToolStripMenuItem
             // 
@@ -512,14 +514,14 @@
             // quảnLýTàiKhoảnToolStripMenuItem
             // 
             this.quảnLýTàiKhoảnToolStripMenuItem.Name = "quảnLýTàiKhoảnToolStripMenuItem";
-            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.quảnLýTàiKhoảnToolStripMenuItem.Text = "Quản lý tài khoản";
             this.quảnLýTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàiKhoảnToolStripMenuItem_Click);
             // 
             // exportOutputToolStripMenuItem
             // 
             this.exportOutputToolStripMenuItem.Name = "exportOutputToolStripMenuItem";
-            this.exportOutputToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exportOutputToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.exportOutputToolStripMenuItem.Text = "ExportOutput";
             this.exportOutputToolStripMenuItem.Click += new System.EventHandler(this.exportOutputToolStripMenuItem_Click);
             // 
@@ -536,7 +538,7 @@
             this.btnExit.Location = new System.Drawing.Point(518, 584);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(100, 28);
+            this.btnExit.Size = new System.Drawing.Size(110, 33);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -544,6 +546,7 @@
             // 
             // group_QLTK
             // 
+            this.group_QLTK.Controls.Add(this.cbbox_crType);
             this.group_QLTK.Controls.Add(this.btn_Save);
             this.group_QLTK.Controls.Add(this.btn_Delete);
             this.group_QLTK.Controls.Add(this.btn_Cancel);
@@ -552,7 +555,6 @@
             this.group_QLTK.Controls.Add(this.dataGridView_Users);
             this.group_QLTK.Controls.Add(this.txb_crPW);
             this.group_QLTK.Controls.Add(this.txb_crUser);
-            this.group_QLTK.Controls.Add(this.txb_crType);
             this.group_QLTK.Controls.Add(this.txb_crFullname);
             this.group_QLTK.Controls.Add(this.label5);
             this.group_QLTK.Controls.Add(this.label9);
@@ -566,6 +568,19 @@
             this.group_QLTK.Size = new System.Drawing.Size(663, 475);
             this.group_QLTK.TabIndex = 8;
             this.group_QLTK.TabStop = false;
+            // 
+            // cbbox_crType
+            // 
+            this.cbbox_crType.FormattingEnabled = true;
+            this.cbbox_crType.Items.AddRange(new object[] {
+            "giamdoc",
+            "quanly",
+            "nhanvien"});
+            this.cbbox_crType.Location = new System.Drawing.Point(439, 24);
+            this.cbbox_crType.Name = "cbbox_crType";
+            this.cbbox_crType.Size = new System.Drawing.Size(195, 24);
+            this.cbbox_crType.TabIndex = 17;
+            this.cbbox_crType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbox_crType_KeyDown);
             // 
             // btn_Save
             // 
@@ -655,15 +670,6 @@
             this.txb_crUser.Size = new System.Drawing.Size(181, 22);
             this.txb_crUser.TabIndex = 8;
             this.txb_crUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_crUser_KeyDown);
-            // 
-            // txb_crType
-            // 
-            this.txb_crType.Location = new System.Drawing.Point(439, 28);
-            this.txb_crType.Margin = new System.Windows.Forms.Padding(4);
-            this.txb_crType.Name = "txb_crType";
-            this.txb_crType.Size = new System.Drawing.Size(195, 22);
-            this.txb_crType.TabIndex = 7;
-            this.txb_crType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_crType_KeyDown);
             // 
             // txb_crFullname
             // 
@@ -785,6 +791,16 @@
             this.Output.Text = "Output";
             this.Output.UseVisualStyleBackColor = true;
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.Location = new System.Drawing.Point(440, 357);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(124, 49);
+            this.btn_ExportExcel.TabIndex = 1;
+            this.btn_ExportExcel.Text = "Xuất Excel";
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // dataGridView_Output
             // 
             this.dataGridView_Output.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -798,27 +814,30 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(343, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(264, 38);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_ExportExcel
+            // btn_Logout
             // 
-            this.btn_ExportExcel.Location = new System.Drawing.Point(440, 357);
-            this.btn_ExportExcel.Name = "btn_ExportExcel";
-            this.btn_ExportExcel.Size = new System.Drawing.Size(124, 49);
-            this.btn_ExportExcel.TabIndex = 1;
-            this.btn_ExportExcel.Text = "Xuất Excel";
-            this.btn_ExportExcel.UseVisualStyleBackColor = true;
-            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            this.btn_Logout.AutoSize = true;
+            this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout.Location = new System.Drawing.Point(391, 584);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(105, 33);
+            this.btn_Logout.TabIndex = 11;
+            this.btn_Logout.Text = "Đăng xuất";
+            this.btn_Logout.UseVisualStyleBackColor = true;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // form_Project_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 665);
+            this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnHome);
@@ -907,7 +926,6 @@
         private System.Windows.Forms.DataGridView dataGridView_Users;
         private System.Windows.Forms.TextBox txb_crPW;
         private System.Windows.Forms.TextBox txb_crUser;
-        private System.Windows.Forms.TextBox txb_crType;
         private System.Windows.Forms.TextBox txb_crFullname;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Delete;
@@ -921,6 +939,8 @@
         private System.Windows.Forms.DataGridView dataGridView_Output;
         private System.Windows.Forms.ToolStripMenuItem exportOutputToolStripMenuItem;
         private System.Windows.Forms.Button btn_ExportExcel;
+        private System.Windows.Forms.ComboBox cbbox_crType;
+        private System.Windows.Forms.Button btn_Logout;
     }
 }
 

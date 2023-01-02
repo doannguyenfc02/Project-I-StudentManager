@@ -29,6 +29,8 @@ namespace Project_I
         List_output()
         {
             list_outputs = new List<Output>();
+            //list_outputs.Add(new Output("ADMIN","20200445", "quanly"));
+
         }
     }
 }

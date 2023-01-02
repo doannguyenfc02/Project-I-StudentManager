@@ -96,3 +96,26 @@ C:\Users\Admin\Desktop\Project I (1)\obj\Debug\Project I.csproj.CoreCompileInput
 C:\Users\Admin\Desktop\Project I (1)\obj\Debug\Project I.csproj.CopyComplete
 C:\Users\Admin\Desktop\Project I (1)\obj\Debug\Project I.exe
 C:\Users\Admin\Desktop\Project I (1)\obj\Debug\Project I.pdb
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\Project I.exe.config
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\Project I.exe
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\Project I.pdb
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\EPPlus.dll
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\AForge.dll
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\AForge.Video.xml
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\EPPlus.xml
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\bin\Debug\AForge.xml
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project_I.form_DangNhap.resources
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project_I.form_Project_I.resources
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project_I.Properties.Resources.resources
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.csproj.CopyComplete
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.exe
+C:\Users\Admin\Desktop\PR1\Project I (1) (2)\obj\Debug\Project I.pdb

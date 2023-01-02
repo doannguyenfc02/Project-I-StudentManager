@@ -92,21 +92,24 @@ namespace Project_I
                 return;
             }
         }
+
+        
         /// <summary>
         /// Tạo ảnh từ camera
         /// </summary>
         void TakeImage()
         {
+            //
             DateTime today = DateTime.Now;
             string strTime = today.Year + "-" + today.Month + "-" + today.Day + "_" + today.Hour + "." + today.Minute + "." + today.Second;
-            string fileName = @"C:\\Users\\Admin\\Desktop\\P\\image\\" + strTime + "_" + txtID.Text + ".jpg";
+            string fileName = @"C:\\Users\\Admin\\Desktop\\DN\\DataProject\\" + strTime + "_" + txtID.Text + ".jpg";
             var bitmap = new Bitmap(pic2.Width, pic2.Height);
             pic2.DrawToBitmap(bitmap, pic2.ClientRectangle);
             System.Drawing.Imaging.ImageFormat imageFormat = null;
             imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
             bitmap.Save(fileName, imageFormat);
         }
-
+       
         /// <summary>
         /// Họ và tên của sinh viên lấy từ cơ sở dữ liệu
         /// </summary>
@@ -194,6 +197,7 @@ namespace Project_I
             phanquyenTK();
             fQLTK_load();
             fOutput_Load();
+            btnHome.Enabled = false;
         }
 
 
@@ -241,7 +245,7 @@ namespace Project_I
         {
             StartCamera();
         }
-
+        #region KetnoiDatabae
         private void btnConnect_Click(object sender, EventArgs e)
         {
             strConn = "Server=" + txtServername.Text + ";database=" + txtDB.Text + ";user id=" + txtUser.Text + ";password=" + txtPW.Text;
@@ -251,6 +255,10 @@ namespace Project_I
                 conn.Open();
                 MessageBox.Show("Bạn kết nối cơ sở dữ liệu thành công");
                 isCheck_Database = true;
+                txtServername.Text =null; 
+                txtDB.Text =null;
+                txtUser.Text =null;
+                txtPW.Text =null;
                 tabControl1.SelectedIndex = 0;
             }
             catch (Exception ex)
@@ -261,7 +269,13 @@ namespace Project_I
             }
 
         }
-
+        private void unconnectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isCheck_Database = false;
+            conn.Close();
+            conn = null;
+        }
+        #endregion
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Reset();
@@ -272,20 +286,28 @@ namespace Project_I
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
+            btnHome.Enabled = true;
 
         }
         private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex= 2;
- 
+            btnHome.Enabled = true;
+
         }
         #endregion
         private void btnHome_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
-
+            btnHome.Enabled = false;
         }
-        
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            form_DangNhap fr2 = new form_DangNhap();
+            fr2.Show();
+            this.Close();
+        }
+
         #region methodQLTK
         DataTable datatableWrite = new DataTable();
         DataTable datatableRead = new DataTable();
@@ -388,7 +410,7 @@ namespace Project_I
         /// <param name="isNableDatagridview">trạng thái của Datagridview_Users</param>
         void EnableControls(bool isEnableTextbox, bool isNableDatagridview)
         {
-            txb_crFullname.Enabled =txb_crUser.Enabled = txb_crPW.Enabled = txb_crType.Enabled = isEnableTextbox;
+            txb_crFullname.Enabled =txb_crUser.Enabled = txb_crPW.Enabled = cbbox_crType.Enabled = isEnableTextbox;
             dataGridView_Users.Enabled = isNableDatagridview;
         }
         void clearTextbox()
@@ -421,7 +443,7 @@ namespace Project_I
             string fullname = txb_crFullname.Text;
             string user = txb_crUser.Text;
             string pw = txb_crPW.Text;
-            string type = txb_crType.Text;
+            string type = cbbox_crType.Text;
 
             if (Status == "Add")
             {
@@ -432,7 +454,7 @@ namespace Project_I
                 List_User.Instance.List_users[index].Fullname = txb_crFullname.Text;
                 List_User.Instance.List_users[index].Username = txb_crUser.Text;
                 List_User.Instance.List_users[index].Password = txb_crPW.Text;
-                List_User.Instance.List_users[index].Type = txb_crType.Text;
+                List_User.Instance.List_users[index].Type = cbbox_crType.Text;
 
             }
             EnableControls(true, false);
@@ -456,7 +478,7 @@ namespace Project_I
             txb_crFullname.Text = List_User.Instance.List_users[index].Fullname;
             txb_crUser.Text = List_User.Instance.List_users[index].Username;
             txb_crPW.Text = List_User.Instance.List_users[index].Password;
-            txb_crType.Text = List_User.Instance.List_users[index].Type;
+            cbbox_crType.Text = List_User.Instance.List_users[index].Type;
 
 
             Status = "Edit";
@@ -541,10 +563,33 @@ namespace Project_I
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txb_crType.Focus();
+                cbbox_crType.Focus();
             }
         }
-
+        private void cbbox_crType_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool is_Type = false; //dung de kiem trang khi nhap loai tai khoan
+            if (e.KeyCode == Keys.Enter)
+            {
+                for (int i = 0; i < cbbox_crType.Items.Count; i++)
+                {
+                    if (cbbox_crType.Text == cbbox_crType.Items[i].ToString())
+                    {
+                        is_Type = true;
+                        break;
+                    }
+                }
+                if (is_Type == true)
+                {
+                    MessageBox.Show("Bạn chọn loại tài khoản " + cbbox_crType.Text);
+                    txb_crUser.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn nhập sai định dạng");
+                }
+            }
+        }
         private void txb_crType_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -659,7 +704,7 @@ namespace Project_I
             Excel.Application application = new Excel.Application();
             application.Application.Workbooks.Add(Type.Missing);
             //ghi tiêu tiêu đề
-            for(int i = 0; i < dataGridView_Output.Rows.Count; i++)
+            for(int i = 0; i < dataGridView_Output.Columns.Count; i++)
             {
                 application.Cells[1, i + 1] = dataGridView_Output.Columns[i].HeaderText; 
                 
@@ -680,6 +725,7 @@ namespace Project_I
         private void exportOutputToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 3;
+            btnHome.Enabled = true;
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
@@ -702,5 +748,6 @@ namespace Project_I
             }
         }
         #endregion
+
     }
 }
