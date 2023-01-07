@@ -105,15 +105,18 @@ namespace Project_I
         /// </summary>
         void TakeImage()
         {
-            //
-            DateTime today = DateTime.Now;
-            string strTime = today.Year + "-" + today.Month + "-" + today.Day + "_" + today.Hour + "." + today.Minute + "." + today.Second;
-            string fileName = @"C:\\Users\\Admin\\Desktop\\DN\\DataProject\\" + strTime + "_" + txtID.Text + ".jpg";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JPeg Image|*.jpg";
+            saveFileDialog1.ShowDialog();
+            System.IO.FileStream fileName= (System.IO.FileStream)saveFileDialog1.OpenFile();
             var bitmap = new Bitmap(pic2.Width, pic2.Height);
             pic2.DrawToBitmap(bitmap, pic2.ClientRectangle);
             System.Drawing.Imaging.ImageFormat imageFormat = null;
             imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
             bitmap.Save(fileName, imageFormat);
+            
+            
+           
         }
        
         /// <summary>
@@ -755,5 +758,9 @@ namespace Project_I
         }
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

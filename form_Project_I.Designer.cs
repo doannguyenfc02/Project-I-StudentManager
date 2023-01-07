@@ -94,6 +94,8 @@
             this.dataGridView_Output = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Logout = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
@@ -814,7 +816,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(16, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(316, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(264, 38);
             this.pictureBox1.TabIndex = 10;
@@ -832,11 +834,22 @@
             this.btn_Logout.UseVisualStyleBackColor = true;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(156, 590);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // form_Project_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 665);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
@@ -941,6 +954,8 @@
         private System.Windows.Forms.Button btn_ExportExcel;
         private System.Windows.Forms.ComboBox cbbox_crType;
         private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
