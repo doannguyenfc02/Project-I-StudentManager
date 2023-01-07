@@ -92,10 +92,9 @@
             this.Output = new System.Windows.Forms.TabPage();
             this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.dataGridView_Output = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Logout = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
@@ -445,7 +444,7 @@
             this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(690, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(690, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -742,7 +741,7 @@
             this.tabControl1.Controls.Add(this.Database);
             this.tabControl1.Controls.Add(this.QLTK);
             this.tabControl1.Controls.Add(this.Output);
-            this.tabControl1.Location = new System.Drawing.Point(12, 44);
+            this.tabControl1.Location = new System.Drawing.Point(23, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(671, 533);
@@ -814,14 +813,6 @@
             this.dataGridView_Output.Size = new System.Drawing.Size(609, 345);
             this.dataGridView_Output.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(316, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(264, 38);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // btn_Logout
             // 
             this.btn_Logout.AutoSize = true;
@@ -834,25 +825,22 @@
             this.btn_Logout.UseVisualStyleBackColor = true;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.Location = new System.Drawing.Point(156, 590);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(369, 50);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // form_Project_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 665);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Logout);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.menuStrip1);
@@ -947,7 +935,6 @@
         private System.Windows.Forms.TabPage Home;
         private System.Windows.Forms.TabPage Database;
         private System.Windows.Forms.TabPage QLTK;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage Output;
         private System.Windows.Forms.DataGridView dataGridView_Output;
         private System.Windows.Forms.ToolStripMenuItem exportOutputToolStripMenuItem;
@@ -955,7 +942,7 @@
         private System.Windows.Forms.ComboBox cbbox_crType;
         private System.Windows.Forms.Button btn_Logout;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

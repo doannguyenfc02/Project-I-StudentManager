@@ -203,6 +203,7 @@ namespace Project_I
 
         private void form_Project_I_Load(object sender, EventArgs e)
         {
+            pictureBox1.BringToFront();   //Hiển thị picturebox1 lên trên
             phanquyenTK();
             fQLTK_load();
             fOutput_Load();
@@ -758,9 +759,5 @@ namespace Project_I
         }
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
