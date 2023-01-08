@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_I.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,9 @@ namespace Project_I
         }
 
 
-        List<User> list_users;
+        List<User2> list_users;
 
-        public List<User> List_users
+        public List<User2> List_users
         {
             get => list_users;
             set => list_users = value;
@@ -31,8 +32,8 @@ namespace Project_I
 
         List_User()
         {
-            list_users = new List<User>();
-            //list_users.Add(new User("ADMIN", "Admin", "123456", "quanly"));
+            list_users = new List<User2>();
+            list_users.Add(new User2("ADMIN", "Admin", "123456", "quanly"));
             //list_users.Add(new User("Đoàn Sỹ Nguyên", "Doannguyen", "20200445", "nhanvien"));
             //list_users.Add(new User("USER1", "User1", "123456", "nhan vien"));
         }

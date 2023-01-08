@@ -15,6 +15,7 @@ using System.Xml;
 using System.IO;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
+using Project_I.Properties;
 
 namespace Project_I
 {
@@ -183,7 +184,7 @@ namespace Project_I
         /// </summary>
         void phanquyenTK()
         {
-            switch (Const_P.user.Type)
+            switch (Const_P.user2.type)
             {
                 case "nhanvien":
                     quảnLýTàiKhoảnToolStripMenuItem.Enabled = false;
@@ -244,7 +245,7 @@ namespace Project_I
         private void btnSave_Click(object sender, EventArgs e)
         {
             TakeImage();
-            List_output.Instance.List_outputs.Add(new Output(Hovaten,mssv, txtNote.Text + " "));
+            List_output.Instance.List_outputs.Add(new Output2(Hovaten,mssv, txtNote.Text + " "));
             resetInfo();
             txtID.Focus();
            
@@ -358,7 +359,7 @@ namespace Project_I
             datatableWrite = createDataTable();
             foreach(var item in List_User.Instance.List_users)
             {
-                datatableWrite.Rows.Add(item.Fullname, item.Username, item.Password,item.Type);
+                datatableWrite.Rows.Add(item.fullname, item.username, item.password,item.type);
             }
             datasetWrite.Tables.Add(datatableWrite);
             datasetWrite.WriteXml("data.xml"); //lưu dữ liệu vào file data.xml
@@ -457,14 +458,14 @@ namespace Project_I
 
             if (Status == "Add")
             {
-                List_User.Instance.List_users.Add(new User(fullname, user, pw, type));
+                List_User.Instance.List_users.Add(new User2(fullname, user, pw, type));
             }
             if (Status == "Edit")
             {
-                List_User.Instance.List_users[index].Fullname = txb_crFullname.Text;
-                List_User.Instance.List_users[index].Username = txb_crUser.Text;
-                List_User.Instance.List_users[index].Password = txb_crPW.Text;
-                List_User.Instance.List_users[index].Type = cbbox_crType.Text;
+                List_User.Instance.List_users[index].fullname = txb_crFullname.Text;
+                List_User.Instance.List_users[index].username = txb_crUser.Text;
+                List_User.Instance.List_users[index].password = txb_crPW.Text;
+                List_User.Instance.List_users[index].type = cbbox_crType.Text;
 
             }
             EnableControls(true, false);
@@ -485,10 +486,10 @@ namespace Project_I
             btn_Delete.Enabled = btn_Add.Enabled = btn_Edit.Enabled = false;
             btn_Cancel.Enabled = btn_Save.Enabled = true;
 
-            txb_crFullname.Text = List_User.Instance.List_users[index].Fullname;
-            txb_crUser.Text = List_User.Instance.List_users[index].Username;
-            txb_crPW.Text = List_User.Instance.List_users[index].Password;
-            cbbox_crType.Text = List_User.Instance.List_users[index].Type;
+            txb_crFullname.Text = List_User.Instance.List_users[index].fullname;
+            txb_crUser.Text = List_User.Instance.List_users[index].username;
+            txb_crPW.Text = List_User.Instance.List_users[index].password;
+            cbbox_crType.Text = List_User.Instance.List_users[index].type;
 
 
             Status = "Edit";
@@ -664,7 +665,7 @@ namespace Project_I
             datatableWrite_output = createDataoutputTable();
             foreach (var item in List_output.Instance.List_outputs)
             {
-                datatableWrite_output.Rows.Add(item.Fullname, item.Mssv, item.Note);
+                datatableWrite_output.Rows.Add(item.fullname, item.mssv, item.note);
             }
             datasetWrite_output.Tables.Add(datatableWrite_output);
             datasetWrite_output.WriteXml("dataoutput.xml"); //lưu dữ liệu vào file data.xml
@@ -679,7 +680,7 @@ namespace Project_I
             datatableRead_output = datasetRead_oput.Tables[0]; //cho dữ liệu vào datatable
             foreach (DataRow item in datatableRead_output.Rows)
             {
-                Output newOutput = new Output(item);
+                Output2 newOutput = new Output2(item);
                 List_output.Instance.List_outputs.Add(newOutput);
             }
         }

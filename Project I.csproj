@@ -87,10 +87,20 @@
     </Compile>
     <Compile Include="List_output.cs" />
     <Compile Include="List_User.cs" />
-    <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Properties\Output2.cs" />
+    <Compile Include="Properties\Output2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Output2.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\User2.cs" />
+    <Compile Include="Properties\User2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>User2.settings</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="form_DangNhap.resx">
       <DependentUpon>form_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +118,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\Output2.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Output2.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +136,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\User2.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>User2.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\none-avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

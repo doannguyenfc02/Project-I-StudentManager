@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_I.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,14 @@ namespace Project_I
         }
 
 
-        List<Output> list_outputs;
-        public List<Output> List_outputs { get => list_outputs; set => list_outputs = value; }
+        List<Output2> list_outputs;
+        public List<Output2> List_outputs { get => list_outputs; set => list_outputs = value; }
 
 
 
         List_output()
         {
-            list_outputs = new List<Output>();
+            list_outputs = new List<Output2>();
             //list_outputs.Add(new Output("ADMIN","20200445", "quanly"));
 
         }

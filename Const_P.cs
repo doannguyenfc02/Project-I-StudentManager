@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_I.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Project_I
 {
     internal class Const_P
     {
-        public static User user;
+        public static User2 user2;
         public static List_User listUsers;
     }
 }

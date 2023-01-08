@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_I.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace Project_I
             InitializeComponent();
         }
 
-        List<User> f_list_Users = List_User.Instance.List_users;
+        List<User2> f_list_Users = List_User.Instance.List_users;
         DataTable datatableRead = new DataTable();
         DataSet datasetRead = new DataSet();
 
@@ -30,7 +31,7 @@ namespace Project_I
             datatableRead = datasetRead.Tables[0]; //cho dữ liệu vào datatable
             foreach (DataRow item in datatableRead.Rows)
             {
-                User newUser = new User(item);
+                User2 newUser = new User2(item);
                 List_User.Instance.List_users.Add(newUser);
             }
         }
@@ -44,9 +45,9 @@ namespace Project_I
         {
             for (int i = 0; i < List_User.Instance.List_users.Count; i++)
             {
-                if (ten_tk == List_User.Instance.List_users[i].Username && Mk == List_User.Instance.List_users[i].Password)
+                if (ten_tk == List_User.Instance.List_users[i].username && Mk == List_User.Instance.List_users[i].password)
                 {
-                    Const_P.user = List_User.Instance.List_users[i];
+                    Const_P.user2 = List_User.Instance.List_users[i];
                     return true;
                 }
             }
