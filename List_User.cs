@@ -33,7 +33,7 @@ namespace Project_I
         List_User()
         {
             list_users = new List<User2>();
-            list_users.Add(new User2("ADMIN", "Admin", "123456", "quanly"));
+            //list_users.Add(new User2("ADMIN", "Admin", "123456", "quanly"));
             //list_users.Add(new User("Đoàn Sỹ Nguyên", "Doannguyen", "20200445", "nhanvien"));
             //list_users.Add(new User("USER1", "User1", "123456", "nhan vien"));
         }
