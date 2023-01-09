@@ -46,7 +46,10 @@ namespace Project_I
         /// Kiểm tra trạng thái của camera
         /// </summary>
         int checkStart =0;
-
+        /// <summary>
+        /// biến để kiểm tra chọn đường dẫn hay chưa
+        /// </summary>
+        int isPath = 0;
         /// <summary>
         /// Bật camera chương trình
         /// </summary>
@@ -99,8 +102,19 @@ namespace Project_I
                 return;
             }
         }
-
-        
+        /// <summary>
+        /// Chọn đường dẫn
+        /// </summary>
+        private void btnPath_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog f2 = new FolderBrowserDialog();
+            if (f2.ShowDialog() == DialogResult.OK)
+            {
+                txbPath.Text = f2.SelectedPath;
+                isPath = 1;
+            }
+        }
+        /*
         /// <summary>
         /// Tạo ảnh từ camera
         /// </summary>
@@ -119,7 +133,21 @@ namespace Project_I
             
            
         }
-       
+        */
+        /// <summary>
+        /// TẠO ẢNH TỪ CAMERA
+        /// </summary>
+        void TakeImage()
+        {
+            DateTime today = DateTime.Now;
+            string strTime = today.Year + "-" + today.Month + "-" + today.Day + "_" + today.Hour + "." + today.Minute + "." + today.Second;
+            string fileName =txbPath.Text+"\\" + strTime + "_" + txtID.Text + ".jpg";
+            var bitmap = new Bitmap(pic2.Width, pic2.Height);
+            pic2.DrawToBitmap(bitmap, pic2.ClientRectangle);
+            System.Drawing.Imaging.ImageFormat imageFormat = null;
+            imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
+            bitmap.Save(fileName, imageFormat);
+        }
         /// <summary>
         /// Họ và tên của sinh viên lấy từ cơ sở dữ liệu
         /// </summary>
@@ -244,10 +272,20 @@ namespace Project_I
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            TakeImage();
-            List_output.Instance.List_outputs.Add(new Output2(Hovaten,mssv, txtNote.Text + " "));
-            resetInfo();
-            txtID.Focus();
+            if (isPath==1)
+            {
+                TakeImage();
+                List_output.Instance.List_outputs.Add(new Output2(Hovaten, mssv, txtNote.Text + " "));
+                resetInfo();
+                txtID.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Bạn vui lòng chọn đường dẫn");
+                btnPath.PerformClick();
+            }
+
+
            
         }
         #region menu
@@ -759,6 +797,5 @@ namespace Project_I
             }
         }
         #endregion
-
     }
 }
