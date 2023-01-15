@@ -95,8 +95,6 @@
             this.btn_Logout = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txbPath = new System.Windows.Forms.TextBox();
-            this.btnPath = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
@@ -281,8 +279,6 @@
             // 
             // group_Home
             // 
-            this.group_Home.Controls.Add(this.btnPath);
-            this.group_Home.Controls.Add(this.txbPath);
             this.group_Home.Controls.Add(this.btnCheck);
             this.group_Home.Controls.Add(this.txtID);
             this.group_Home.Controls.Add(this.label1);
@@ -448,7 +444,7 @@
             this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(690, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(690, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -837,24 +833,6 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // txbPath
-            // 
-            this.txbPath.Location = new System.Drawing.Point(53, 245);
-            this.txbPath.Name = "txbPath";
-            this.txbPath.Size = new System.Drawing.Size(221, 22);
-            this.txbPath.TabIndex = 7;
-            // 
-            // btnPath
-            // 
-            this.btnPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPath.Location = new System.Drawing.Point(275, 244);
-            this.btnPath.Name = "btnPath";
-            this.btnPath.Size = new System.Drawing.Size(31, 24);
-            this.btnPath.TabIndex = 8;
-            this.btnPath.Text = "...";
-            this.btnPath.UseVisualStyleBackColor = true;
-            this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
-            // 
             // form_Project_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -965,8 +943,6 @@
         private System.Windows.Forms.Button btn_Logout;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnPath;
-        private System.Windows.Forms.TextBox txbPath;
     }
 }
 

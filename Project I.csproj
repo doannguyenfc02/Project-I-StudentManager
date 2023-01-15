@@ -89,6 +89,12 @@
     <Compile Include="List_User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\list_db.cs" />
+    <Compile Include="Properties\list_db.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>list_db.settings</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Output2.cs" />
     <Compile Include="Properties\Output2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +124,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\list_db.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>list_db.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\Output2.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Output2.Designer.cs</LastGenOutput>
